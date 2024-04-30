@@ -13,11 +13,7 @@ interface Product {
   description: string;
 }
 
-interface SidePanelProps {
-  selectedProduct: Product | null;
-}
-
-const SidePanel: React.FC<SidePanelProps> = () => {
+const SidePanel = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [filterData, setFilterData] = useState<any>("");
   const searchParams = useSearchParams();
