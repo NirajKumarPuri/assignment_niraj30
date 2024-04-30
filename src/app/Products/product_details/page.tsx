@@ -2,8 +2,9 @@
 
 import { Typography } from "@mui/material";
 import axios from "axios";
-import { useParams, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import { Suspense } from "react";
 
 interface Product {
   id: number;
@@ -14,10 +15,11 @@ interface Product {
 }
 
 const SidePanel = () => {
-  const [products, setProducts] = useState<Product[]>([]);
-  const [filterData, setFilterData] = useState<any>("");
   const searchParams = useSearchParams();
   const slug = searchParams.get("Id");
+  const [products, setProducts] = useState<Product[]>([]);
+  const [filterData, setFilterData] = useState<any>("");
+
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get("https://fakestoreapi.com/products");
@@ -55,4 +57,12 @@ const SidePanel = () => {
   );
 };
 
-export default SidePanel;
+const SidePanelWrapper = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <SidePanel />
+    </Suspense>
+  );
+};
+
+export default SidePanelWrapper;
