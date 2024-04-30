@@ -2,7 +2,7 @@
 
 import { Typography } from "@mui/material";
 import axios from "axios";
-import { useParams } from "next/navigation";
+import { useParams, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 interface Product {
@@ -20,9 +20,8 @@ interface SidePanelProps {
 const SidePanel: React.FC<SidePanelProps> = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [filterData, setFilterData] = useState<any>("");
-  const param = useParams();
-  const { slug } = param;
-
+  const searchParams = useSearchParams();
+  const slug = searchParams.get("Id");
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get("https://fakestoreapi.com/products");

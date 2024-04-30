@@ -69,15 +69,20 @@ const ProductTable = () => {
 
                 <TableCell sx={{ color: "white", border: "1px solid white" }}>
                   <Link
-                    href={`/Products/${product.id}`}
-                    style={{ textDecoration: "none" }}
+                    href={{
+                      pathname: "/Products/product_details",
+                      query: { Id: product.id },
+                    }}
                   >
                     {product.title}
                   </Link>
                 </TableCell>
                 <TableCell sx={{ color: "white", border: "1px solid white" }}>
                   <Link
-                    href={`/Products/${product.id}`}
+                    href={{
+                      pathname: "/Products/product_details",
+                      query: { Id: product.id },
+                    }}
                     style={{ textDecoration: "none" }}
                   >
                     {product.image}
@@ -85,7 +90,10 @@ const ProductTable = () => {
                 </TableCell>
                 <TableCell sx={{ color: "white", border: "1px solid white" }}>
                   <Link
-                    href={`/Products/${product.id}`}
+                    href={{
+                      pathname: "/Products/product_details",
+                      query: { Id: product.id },
+                    }}
                     style={{ textDecoration: "none" }}
                   >
                     {product.category}
@@ -93,8 +101,10 @@ const ProductTable = () => {
                 </TableCell>
                 <TableCell sx={{ color: "white", border: "1px solid white" }}>
                   <Link
-                    href={`/Products/${product.id}`}
-                    style={{ textDecoration: "none" }}
+                    href={{
+                      pathname: "/Products/product_details",
+                      query: { Id: product.id },
+                    }}
                   >
                     {product.description}
                   </Link>
