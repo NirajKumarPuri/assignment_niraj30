@@ -1,6 +1,7 @@
 "use client";
 
 import { Typography } from "@mui/material";
+
 import axios from "axios";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
